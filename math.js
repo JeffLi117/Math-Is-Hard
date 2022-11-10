@@ -17,6 +17,7 @@ function operate(operator, number1, number2) {
 let storedString1 = "";
 let storedNumber1 = 0;
 let storedFunc = "";
+let lastButtonClicked = "";
 
 let container = document.querySelector('container');
 container = document.createElement('div');
@@ -32,44 +33,44 @@ buttonClear.addEventListener('click', (e) => {
     display.textContent = "0";
 })
 
-/* storedNumber1 != "" meaning a number has been entered and a calc button has been pressed */
+/* storedNumber1 != "" meaning a number has been entered and a calc button has been pressed 
+lastButtonClicked = "num" makes it so that it will not reset display and will continue adding numbers*/
 
 button0.addEventListener('click', (e) => {
-    if (display.textContent === "0") {
+    if (display.textContent === "0" || lastButtonClicked === "calc") {
         display.textContent = "0";
-    } else if (storedNumber1 != "") {
-        display.textContent = "";
-        display.textContent += "0";
-        console.log(display.textContent);
-    }
-    else {
+    } else if (lastButtonClicked === "num") {
     display.textContent += "0";
     }
+    lastButtonClicked = "num";
 })
 
 button1.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "1";
-    } else if (storedNumber1 != "") {
+    } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "1";
         console.log(display.textContent);
-    } else {
-    display.textContent += "1";
+    } else if (lastButtonClicked === "num") {
+        display.textContent += "1";
+        console.log(display.textContent);
     }
+    lastButtonClicked = "num";
 })
 
 button2.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "2";
-    }  else if (storedString1 != "") {
+    }  else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "2";
         console.log(display.textContent);
-    } else {
+    } else if (lastButtonClicked === "num") {
         display.textContent += "2";
         console.log(display.textContent);
     }
+    lastButtonClicked = "num";
 })
 
 button3.addEventListener('click', (e) => {
@@ -99,13 +100,14 @@ button8.addEventListener('click', (e) => {
 button9.addEventListener('click', (e) => {
     display.textContent += "9";
 })
+console.log(lastButtonClicked);
 
 calcAdd.addEventListener('click', (e) => {
     storedFunc = add;
     storedString1 = display.textContent;
     storedNumber1 = Number(storedString1);
-    
-    console.log(storedString1);
+    lastButtonClicked = "calc";
+    console.log(lastButtonClicked);
     console.log(storedNumber1);
 })
 
