@@ -11,7 +11,7 @@ body {
     height: 100vh;
 }
 
-div[id^="button"] {
+button[id^="button"] {
     color:rgb(75, 15, 228);
 }
 
@@ -19,5 +19,6 @@ div[id^="button"] {
     display: inline-block;
     border: 1px solid black;
     font-size: 25px;
+    margin-bottom: 1em;
     font-family:'Times New Roman', Times, serif
 }

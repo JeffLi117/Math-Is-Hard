@@ -14,6 +14,7 @@ function divide(a,b) {
 function operate(operator, number1, number2) {
     return operator(number1, number2)}   
 
+let storedString1 = "";
 let storedNumber1 = 0;
 let storedFunc = "";
 
@@ -31,32 +32,43 @@ buttonClear.addEventListener('click', (e) => {
     display.textContent = "0";
 })
 
+/* storedNumber1 != "" meaning a number has been entered and a calc button has been pressed */
+
 button0.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "0";
-    } else {
+    } else if (storedNumber1 != "") {
+        display.textContent = "";
+        display.textContent += "0";
+        console.log(display.textContent);
+    }
+    else {
     display.textContent += "0";
-    storedNumber1 = display.textContent;
     }
 })
 
 button1.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "1";
-        storedNumber1 = display.textContent;
+    } else if (storedNumber1 != "") {
+        display.textContent = "";
+        display.textContent += "1";
+        console.log(display.textContent);
     } else {
     display.textContent += "1";
-    storedNumber1 = display.textContent;
     }
 })
 
 button2.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "2";
-        storedNumber1 = display.textContent;
+    }  else if (storedString1 != "") {
+        display.textContent = "";
+        display.textContent += "2";
+        console.log(display.textContent);
     } else {
-    display.textContent += "2";
-    storedNumber1 = display.textContent;
+        display.textContent += "2";
+        console.log(display.textContent);
     }
 })
 
@@ -90,12 +102,17 @@ button9.addEventListener('click', (e) => {
 
 calcAdd.addEventListener('click', (e) => {
     storedFunc = add;
-    console.log(typeof storedFunc);
+    storedString1 = display.textContent;
+    storedNumber1 = Number(storedString1);
+    
+    console.log(storedString1);
+    console.log(storedNumber1);
 })
 
 //clicking on numbers adds to display.textContent and stores each inputted number on said display into storedNumber1
-//click on calculation symbol needs to store function into storedFunc
-//next click on numbers should reset display.textContent to "" and then fill 
+//click on calculation symbol needs to store function into storedFunc (?and move storedNumber1 into storedNumber2?)
+//next click on any number should reset display.textContent to "" and then fill as it did previously
+//current number on display.textContent 
 
 
 
