@@ -1,0 +1,23 @@
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+    width: 75vh;
+    height: 100vh;
+}
+
+div[id^="button"] {
+    color:rgb(75, 15, 228);
+}
+
+.display {
+    display: inline-block;
+    border: 1px solid black;
+    font-size: 25px;
+    font-family:'Times New Roman', Times, serif
+}
