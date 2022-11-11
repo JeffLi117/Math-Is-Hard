@@ -4,6 +4,8 @@ let storedFunc = "";
 let lastButtonClicked = "start";
 let hasCalcBeenPressed = "no";
 let equalsJustClicked = "no";
+let deleteLastInput = "";
+let dotClicked = "no";
 
 function add(a, b) {
     return a+b}
@@ -16,7 +18,10 @@ function multiply(a, b) {
     return a*b}
 
 function divide(a,b) {
-    return a/b}
+    if (a === 0 || b === 0) {
+        return "Try again, slick."
+    } else {
+    return a/b}}
 
 function operate(operator, number1, number2) {
     return operator(number1, number2)}   
@@ -37,12 +42,38 @@ buttonClear.addEventListener('click', (e) => {
     hasCalcBeenPressed = "no";
 })
 
+buttonBack.addEventListener('click', (e) => {
+    if (display.textContent.length === 1) {
+        display.textContent = "0";
+    } else {
+    deleteLastInput = display.textContent.slice(0, display.textContent.length - 1);
+    display.textContent = deleteLastInput;
+    console.log(display.textContent.length);
+    }
+})
+
+buttonDot.addEventListener('click', (e) => {
+    if (lastButtonClicked === "calc") {
+        display.textContent = "0.";
+    } else if (display.textContent.includes(".")) {
+        return;
+    } else {
+    display.textContent += ".";
+    }
+    dotClicked = "yes";
+})
+
 /* storedNumber1 != "" meaning a number has been entered and a calc button has been pressed 
 lastButtonClicked = "num" makes it so that it will not reset display and will continue adding numbers*/
 
 button0.addEventListener('click', (e) => {
-    if (display.textContent === "0" || lastButtonClicked === "calc") {
+    if (display.textContent === "0") {
         display.textContent = "0";
+    }  else if (dotClicked === "yes") {
+        display.textContent += "0";
+    }  else if (lastButtonClicked === "calc") {
+        display.textContent = "";
+        display.textContent += "0";
     } else {
     display.textContent += "0";
     }
@@ -52,6 +83,8 @@ button0.addEventListener('click', (e) => {
 button1.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "1";
+    } else if (dotClicked === "yes") {
+        display.textContent += "1";
     } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "1";
@@ -64,7 +97,9 @@ button1.addEventListener('click', (e) => {
 button2.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "2";
-    }  else if (lastButtonClicked === "calc") {
+    } else if (dotClicked === "yes") {
+        display.textContent += "2";
+    } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "2";
     } else {
@@ -76,6 +111,8 @@ button2.addEventListener('click', (e) => {
 button3.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "3";
+    } else if (dotClicked === "yes") {
+        display.textContent += "3";
     } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "3";
@@ -88,6 +125,8 @@ button3.addEventListener('click', (e) => {
 button4.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "4";
+    } else if (dotClicked === "yes") {
+        display.textContent += "4";
     } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "4";
@@ -100,6 +139,8 @@ button4.addEventListener('click', (e) => {
 button5.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "5";
+    } else if (dotClicked === "yes") {
+        display.textContent += "5";
     } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "5";
@@ -112,6 +153,8 @@ button5.addEventListener('click', (e) => {
 button6.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "6";
+    } else if (dotClicked === "yes") {
+        display.textContent += "6";
     } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "6";
@@ -124,6 +167,8 @@ button6.addEventListener('click', (e) => {
 button7.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "7";
+    } else if (dotClicked === "yes") {
+        display.textContent += "7";
     } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "7";
@@ -136,6 +181,8 @@ button7.addEventListener('click', (e) => {
 button8.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "8";
+    } else if (dotClicked === "yes") {
+        display.textContent += "8";
     } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "8";
@@ -148,6 +195,8 @@ button8.addEventListener('click', (e) => {
 button9.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "9";
+    } else if (dotClicked === "yes") {
+        display.textContent += "9";
     } else if (lastButtonClicked === "calc") {
         display.textContent = "";
         display.textContent += "9";
@@ -176,6 +225,7 @@ calcAdd.addEventListener('click', (e) => {
     storedFunc = add;
     lastButtonClicked = "calc";
     hasCalcBeenPressed = "yes";
+    dotClicked = "no";
 })
 
 calcSubtract.addEventListener('click', (e) => {
@@ -197,6 +247,7 @@ calcSubtract.addEventListener('click', (e) => {
     storedFunc = subtract;
     lastButtonClicked = "calc";
     hasCalcBeenPressed = "yes";
+    dotClicked = "no";
 })
 
 calcMultiply.addEventListener('click', (e) => {
@@ -218,6 +269,7 @@ calcMultiply.addEventListener('click', (e) => {
     storedFunc = multiply;
     lastButtonClicked = "calc";
     hasCalcBeenPressed = "yes";
+    dotClicked = "no";
 })
 
 calcDivide.addEventListener('click', (e) => {
@@ -239,6 +291,7 @@ calcDivide.addEventListener('click', (e) => {
     storedFunc = divide;
     lastButtonClicked = "calc";
     hasCalcBeenPressed = "yes";
+    dotClicked = "no";
 })
 
 calcEquals.addEventListener('click', (e) => {
@@ -249,6 +302,7 @@ calcEquals.addEventListener('click', (e) => {
         lastButtonClicked = "calc";
         hasCalcBeenPressed = "yes";
         equalsJustClicked = "yes";
+        dotClicked = "no";
     }
 })
 
