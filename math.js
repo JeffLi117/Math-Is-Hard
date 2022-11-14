@@ -69,9 +69,6 @@ buttonDot.addEventListener('click', (e) => {
     dotClicked = "yes";
 })
 
-/* storedNumber1 != "" meaning a number has been entered and a calc button has been pressed 
-lastButtonClicked = "num" makes it so that it will not reset display and will continue adding numbers*/
-
 button0.addEventListener('click', (e) => {
     if (display.textContent === "0") {
         display.textContent = "0";
@@ -339,23 +336,3 @@ for (i = 0; i < coll.length; i++) {
       }
     });
 }
-/* 
-function buttonToggle(where, pval, nval) {
-    var table = document.getElementById(where.attributes.rel.value);
-    where.value = (where.value == pval) ? nval : pval;
-    table.style.display = (table.style.display == 'block') ? 'none' : 'block';
-}
-
-document.getElementById("what").onclick = (function() {
-    var table = document.getElementById("hidden1");
-    return function() {
-        buttonToggle(this, 'View', 'Hide');
-    };
-}());
-
-document.getElementById("who").onclick = (function() {
-    var table = document.getElementById("hidden2");
-    return function() {
-        buttonToggle(this, 'View', 'Hide');
-    };
-}()); */
