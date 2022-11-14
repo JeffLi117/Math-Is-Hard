@@ -9,10 +9,11 @@ body {
     text-align: center;
     width: 100%;
     height: 100vh;
+    background-color: rgb(238, 208, 34);
 }
 
 #biggest {
-    border: 5px solid gray;
+    border: 5px solid black;
     border-radius: 8px;
     padding: 2em;
 
@@ -32,13 +33,19 @@ footer {
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
-    font-size: 1em;
+    font-size: 1.5em;
  }
 
+#biggest {
+    background-color: rgb(249, 133, 61);
+}
+ 
 .display {
     text-align: center;
     display: inline-block;
-    border: 1px solid black;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 8px;
     font-size: 40px;
     min-width: 200px;
     max-width: 380px;
@@ -62,6 +69,9 @@ button {
     min-width: 45px;
     min-height: 45px;
     font-family: 'Roboto Mono', monospace;
+    border: 2px solid black;
+    border-radius: 6px;
+    background-color: beige;
 }
 
 .buttons {
@@ -115,3 +125,70 @@ button {
     grid-row-start: 4;
     grid-row-end: 6;
 }
+
+.sidepanel {
+    height: 150px;
+    max-height: 800px;
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0;
+    left: 0;
+    background-color: #111; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 45px; 
+    transition: 0.5s; 
+  }
+  
+.sidepanel a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+.sidepanel a:hover {
+    color: #ebe649;
+  }
+  
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    text-align: center;
+  }
+
+.what, .who {
+    text-align: center;
+  }
+  
+.openbtn {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 10%;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+.openbtn:hover {
+    background-color: rgb(237, 34, 145);
+  }
+
+#content1, #content2 {
+    display: none;
+    padding: 5px;
+    margin: 5px;
+  }
+
+/* #hidden1, #hidden2 {
+    display:none;
+} */

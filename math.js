@@ -312,4 +312,50 @@ calcEquals.addEventListener('click', (e) => {
     }
 })
 
+function openNav() {
+    document.getElementById("sidePanel").style.width = "350px";
+  }
+  
+function closeNav() {
+    document.getElementById("sidePanel").style.width = "0";
+  }
 
+  var coll = document.getElementsByClassName("collapsible");
+var i;
+  
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        document.getElementById("sidePanel").style.width = "350px";
+        document.getElementById("sidePanel").style.height = "350px";
+      } else {
+        content.style.display = "block";
+        content.style.fontSize = "20px";
+        document.getElementById("sidePanel").style.width = "350px";
+        document.getElementById("sidePanel").style.height = "800px";
+      }
+    });
+}
+/* 
+function buttonToggle(where, pval, nval) {
+    var table = document.getElementById(where.attributes.rel.value);
+    where.value = (where.value == pval) ? nval : pval;
+    table.style.display = (table.style.display == 'block') ? 'none' : 'block';
+}
+
+document.getElementById("what").onclick = (function() {
+    var table = document.getElementById("hidden1");
+    return function() {
+        buttonToggle(this, 'View', 'Hide');
+    };
+}());
+
+document.getElementById("who").onclick = (function() {
+    var table = document.getElementById("hidden2");
+    return function() {
+        buttonToggle(this, 'View', 'Hide');
+    };
+}()); */
