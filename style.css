@@ -36,6 +36,11 @@ footer {
     font-size: 1.5em;
  }
 
+footer a, a:visited {
+    text-decoration: none;  
+    color: black;
+   } 
+
 #biggest {
     background-color: rgb(249, 133, 61);
 }
