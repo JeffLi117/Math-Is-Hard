@@ -7,21 +7,27 @@ let equalsJustClicked = "no";
 let deleteLastInput = "";
 let dotClicked = "no";
 
+/* +parseFloat((4.55555).toFixed(2));
+//-> 4.56
+
++parseFloat((4).toFixed(2));
+//-> 4 */
+
 function add(a, b) {
-    return a+b}
+    return parseFloat((a+b).toFixed(10))}
 
 function subtract(a, b) {
-    return a-b}
+    return parseFloat((a-b).toFixed(10))}
 
 
 function multiply(a, b) {
-    return a*b}
+    return parseFloat((a*b).toFixed(10))}
 
 function divide(a,b) {
     if (a === 0 || b === 0) {
         return "Try again, slick."
     } else {
-    return a/b}}
+    return parseFloat((a/b).toFixed(10))}}
 
 function operate(operator, number1, number2) {
     return operator(number1, number2)}   
