@@ -32,9 +32,17 @@ footer {
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
-    font-size: 1.5em;
+    padding: 5px;
+    font-size: 1.25em;
  }
+
+span {
+    display: inline-block;
+  }
+  
+img {
+    vertical-align:middle;
+}
 
 footer a, a:visited {
     text-decoration: none;  
